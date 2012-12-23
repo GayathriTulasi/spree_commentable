@@ -1,0 +1,8 @@
+<h2><%= t(:comment_from) %> «<%= accurate_title %>»</h2>
+<% @product.approved_comments.each_with_index do |comment, index| %>
+  <article <% if index.even? %>class="even"<% end %>>
+    <h4><span class="decor-weight "><%= comment.author %>,</span> г. <%= comment.city %></h4>
+    <span><%= comment.created_at.strftime("%e.%m.%Y") %></span>
+    <p><%= comment.comment %></p>
+  </article>
+<% end %>

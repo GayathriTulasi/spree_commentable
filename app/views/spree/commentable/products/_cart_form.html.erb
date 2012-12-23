@@ -1,0 +1,54 @@
+<%= form_for :order, :url => populate_orders_path do |f| %>
+  <div id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+
+    <% if @product.has_variants? %>
+      <div id="product-variants" class="columns five alpha">
+        <h6 class="product-section-title"><%= t(:variants) %></h6>
+        <ul>
+          <% has_checked = false
+          @product.variants.active.each_with_index do |v,index|
+            next if v.option_values.empty? || (!v.in_stock && !Spree::Config[:show_zero_stock_products])
+            checked = !has_checked && (v.in_stock || Spree::Config[:allow_backorders])
+            has_checked = true if checked %>
+            <li>
+              <%= radio_button_tag "products[#{@product.id}]", v.id, checked, :disabled => !v.in_stock && !Spree::Config[:allow_backorders] %>
+              <label for="<%= ['products', @product.id, v.id].join('_') %>">
+                <span class="variant-description">
+                  <%= variant_options v %>
+                </span>
+                <% if variant_price_diff v %>
+                  <span class="price diff"><%= variant_price_diff v %></span>
+                <% end %>
+              </label>
+            </li>
+          <% end%>
+        </ul>
+      </div>
+    <% end%>
+
+    <% if @product.price %>
+      <div data-hook="product_price" class="columns five <% if !@product.has_variants? %> alpha <% else %> omega <% end %>">
+
+      <% unless @product.sku.blank? %>
+        <div id="product-price">
+          <%= t(:price) %>: <span><%= money @product.price %></span>
+        </div>
+      <% end %>
+
+        <div class="add-to-cart">
+          <% unless @product.sku.blank? %>
+            <% if @product.on_sale? %>
+              <%= button_tag :class => 'btn', :id => 'add-to-cart-button', :type => :submit do %>
+                В Корзину
+              <% end %>
+            <% else %>
+              <%= content_tag('strong', t(:out_of_stock)) %>
+            <% end %>
+          <% end %>
+        </div>
+
+      </div>
+    <% end %>
+
+  </div>
+<% end %>

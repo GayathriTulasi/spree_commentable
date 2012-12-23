@@ -1,0 +1,10 @@
+<div><b><%= t("activerecord.attributes.comment.author") %></b>: <%= @comment.author %></div>
+<div><b><%= t("activerecord.attributes.comment.comment") %></b>: <%= @comment.comment %></div>
+<div><b><%= t("activerecord.attributes.comment.city") %></b>: <%= @comment.city %></div>
+<%= form.field_container :approve do %>
+  <%= form.check_box :approve  %> <%= form.label :approve, t("activerecord.attributes.comment.approve") %><br />
+<% end %>
+
+<%= form.field_container :review do %>
+  <%= form.check_box :review  %> <%= form.label :review, t("activerecord.attributes.comment.review") %><br />
+<% end %>

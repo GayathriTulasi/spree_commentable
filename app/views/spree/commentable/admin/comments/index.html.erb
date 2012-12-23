@@ -1,0 +1,54 @@
+<h1><%= t("activerecord.attributes.comment.comments_listing") %></h1>
+
+<table class="index">
+  <thead>
+  <tr>
+      <th><%= sort_link @search, :author, t("activerecord.attributes.comment.author") %></th>
+      <th><%= sort_link @search, :comment,  t("activerecord.attributes.comment.comment") %></th>
+      <th><%= sort_link @search, :city, t("activerecord.attributes.comment.city") %></th>
+      <th><%= sort_link @search, :resource_type, t("activerecord.attributes.comment.resource_type") %></th>
+      <th><%= sort_link @search, :created_at, t("activerecord.attributes.comment.created_at") %></th>
+      <th><%= sort_link @search, :approve, t("activerecord.attributes.comment.approve") %></th>
+      <th><%= t("action") %></th>
+  </tr>
+  </thead>
+  <tbody>
+    <%- @collection.each do |comment|%>
+    <tr id="<%= dom_id comment %>">
+      <td><%= comment.author %></td>
+      <td><%= link_to comment.comment.truncate(100, :omission => '...'), object_url(comment) %></td>
+      <td><%= comment.city %></td>
+      <td><%= comment.resource_type == 'Spree::Product' ?  t("activerecord.attributes.comment.product") : t("activerecord.attributes.comment.blog") %></td>
+      <td><%= l comment.created_at, :format => :date_time %></td>
+      <td><%= comment.approve ? t("activerecord.attributes.comment.yes") : t("activerecord.attributes.comment.no") %></td>
+      <td>
+        <%= link_to_edit comment %> &nbsp;
+        <%= link_to_delete comment %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @collection %>
+
+<% content_for :sidebar do %>
+  <div class="box">
+    <h3><%= t(:search) %></h3>
+    <%= search_form_for [:admin, @search] do |f| %>
+      <p>
+        <%= f.label :author, t("activerecord.attributes.comment.author") %><br />
+        <%= f.text_field :author, :size => 25 %>
+      </p>
+      <p>
+        <%= f.label :comment, t("activerecord.attributes.comment.comment") %><br />
+        <%= f.text_field :comment, :size => 25 %>
+      </p>
+      <p>
+        <%= f.label :city, t("activerecord.attributes.comment.city") %><br />
+        <%= f.text_field :city, :size => 25 %>
+      </p>
+      <p><%= button t("search") %></p>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,26 @@
+ru:
+  activerecord:
+    attributes:
+      comment:
+        author: "Автор"
+        comment: "Комментарий"
+        comments: "Комментарии"
+        city: "Город"
+        created_at: "Создан"
+        approve: "Одобрен"
+        yes: "Да"
+        no: "Нет"
+        resource_type: "Тип комментария"
+        product: "Продукт"
+        blog: "Блог"
+        review: "Лучший отзыв"
+        comments_listing: "Список комментариев"
+        comment_params: "Параметры комментария"
+  comment_submit: "Оставить отзыв"
+  author: "Ваше имя"
+  city: "Город"
+  email: "Email"
+  email_warning: "email будет виден только администратору"
+  comment: "Ваш отзыв"
+  comment_from: "Отзывы к"
+  comment_added_notice: "Ваш отзыв успешно добавлен! После проверки администратором он появится на сайте."
