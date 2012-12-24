@@ -1,4 +1,4 @@
-class Spree::Commentable::Admin::CommentsController < Spree::Admin::ResourceController
+class Spree::Admin::CommentsController < Spree::Admin::ResourceController
 
 
   def show

@@ -1,4 +1,4 @@
-class Spree::Commentable::CommentsController < Spree::BaseController
+class Spree::CommentsController < Spree::BaseController
   def create
     @product = Spree::Product.find_by_permalink(params[:product_id])
     @comment = @product.comments.create(params[:comment])
