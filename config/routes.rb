@@ -1,14 +1,14 @@
-Spree::Core::Engine.routes.draw do
+Spree::Core::Engine.routes.prepend do
+  scope(:module => "commentable") do
 
-  resources :products do
-    scope(:module => "commentable") do
+    resources :products do
       resources :comments
     end
-  end
 
-  namespace :admin do
-    scope(:module => "commentable") do
+    namespace :admin do
       resources :comments
     end
+
+
   end
 end
