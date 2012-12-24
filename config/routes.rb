@@ -1,11 +1,14 @@
 Spree::Core::Engine.routes.draw do
 
   resources :products do
-    resources :comments
+    scope(:module => "commentable") do
+      resources :comments
+    end
   end
 
   namespace :admin do
-    resources :comments
+    scope(:module => "commentable") do
+      resources :comments
+    end
   end
-
 end
