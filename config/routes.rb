@@ -8,4 +8,5 @@ Spree::Core::Engine.routes.prepend do
     resources :comments
   end
 
+  post ":blog_id/:id/comments" => "comments#create",  :as => :post_comments
 end
