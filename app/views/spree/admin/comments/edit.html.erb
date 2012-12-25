@@ -1,4 +1,4 @@
-<%= render :partial => 'spree/commentable/admin/shared/post_tabs', :locals => {:current => "Post Details"} %>
+<%= render :partial => 'spree/admin/shared/post_tabs', :locals => {:current => "Post Details"} %>
 
 <% if @comment.try(:errors).present? %>
   <%= render 'spree/shared/error_messages', :target => @comment %>
