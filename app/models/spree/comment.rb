@@ -12,4 +12,7 @@ class Spree::Comment < ActiveRecord::Base
   scope :not_approved, where(:approve => false)
 
   scope :review, where(:review => true)
+  def all_comments
+    Spree::Comments.review
+  end
 end

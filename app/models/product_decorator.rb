@@ -4,4 +4,8 @@ Spree::Product.class_eval do
   def approved_comments
     comments.approved
   end
+
+  def review_comments
+    comments.review.limit(3)
+  end
 end
