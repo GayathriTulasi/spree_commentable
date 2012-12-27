@@ -1,7 +1,7 @@
 class Spree::Comment < ActiveRecord::Base
   attr_accessible :approve, :author, :comment, :email, :review, :city
 
-  belongs_to :resource, polymorphic: true, dependent: :destroy
+  belongs_to :resource, polymorphic: true
 
   validates :email, :presence => true
   validates :author, :presence => true, :length => { :minimum => 3, :maximum => 100 }
