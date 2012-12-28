@@ -15,6 +15,12 @@ module Spree
           @collection = @search.result.page(params[:page]).per(10)
         end
 
+        def find_resource
+          @object ||= Spree::Post.find_by_path(params[:id])
+        end
+
+
+
     #   def new
     #     @post = Spree::Post.new
     #     @post.posted_at ||= Time.now
