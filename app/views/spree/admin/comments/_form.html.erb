@@ -1,6 +1,9 @@
 <div><b><%= t("activerecord.attributes.comment.author") %></b>: <%= @comment.author %></div>
 <div><b><%= t("activerecord.attributes.comment.comment") %></b>: <%= @comment.comment %></div>
+<div><b><%= t("activerecord.attributes.comment.email") %></b>: <%= @comment.email %></div>
 <div><b><%= t("activerecord.attributes.comment.city") %></b>: <%= @comment.city %></div>
+<div><b>Добавлен к <%= @comment.resource_type == 'Spree::Product' ?  'продукту' : 'посту' %></b>:  <%= @comment.resource.title %>  
+  [<%= @comment.resource_type == 'Spree::Product' ?   link_to('Ссылка', @comment.resource)  : link_to('Ссылка', "/#{@comment.resource.blog.permalink}/#{@comment.resource.path}")  %>]</div>
 <%= form.field_container :approve do %>
   <%= form.check_box :approve  %> <%= form.label :approve, t("activerecord.attributes.comment.approve") %><br />
 <% end %>
