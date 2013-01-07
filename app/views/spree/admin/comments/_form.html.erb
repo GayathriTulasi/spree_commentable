@@ -6,7 +6,13 @@
   [<%= @comment.resource_type == 'Spree::Product' ?   link_to('Ссылка', @comment.resource)  : link_to('Ссылка', "/#{@comment.resource.blog.permalink}/#{@comment.resource.path}")  %>]</div>
 
 <%= form.field_container :comment do %>
+  <%= form.label :comment %>
   <%= form.text_area :comment %>
+<% end %>
+
+<%= form.field_container :short_description do %>
+  <%= form.label :short_description %>
+  <%= form.text_area :short_description %>
 <% end %>
 
 <%= form.field_container :approve do %>
