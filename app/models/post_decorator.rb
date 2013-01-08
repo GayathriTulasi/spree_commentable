@@ -6,6 +6,6 @@ Spree::Post.class_eval do
   end
 
   def review_comments
-    comments.review.limit(3)
+    comments.review
   end
 end
