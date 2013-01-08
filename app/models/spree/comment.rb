@@ -1,6 +1,6 @@
 class Spree::Comment < ActiveRecord::Base
 
-  attr_accessible :approve, :author, :comment, :email, :review, :city, :created_at, :resource_id
+  attr_accessible :approve, :author, :comment, :email, :review, :city, :created_at, :resource_id, :order
 
 
   belongs_to :resource, polymorphic: true
