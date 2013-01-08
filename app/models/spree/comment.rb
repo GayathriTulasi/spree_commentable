@@ -1,5 +1,5 @@
 class Spree::Comment < ActiveRecord::Base
-  attr_accessible :approve, :author, :comment, :email, :review, :city
+  attr_accessible :approve, :author, :comment, :email, :review, :city, :created_at
 
   belongs_to :resource, polymorphic: true
 
@@ -8,8 +8,10 @@ class Spree::Comment < ActiveRecord::Base
   validates :comment, :presence => true, :length => { :minimum => 3, :maximum => 2000 }
   validates :city, :presence => true, :length => { :minimum => 3, :maximum => 20 }
 
-  scope :approved, where(:approve => true)
+  scope :approved, -> {where(:approve => true)}
   scope :not_approved, where(:approve => false)
+
+  scope :current_comment, where("created_at <= ?", Time.now)
 
   scope :review, where(:review => true)
   def all_comments
