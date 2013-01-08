@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_commentable'
-  s.version     = '0.2'
+  s.version     = '0.3'
   s.summary     = 'spree commentable gem'
   s.description = 'comments for spree products'
   s.required_ruby_version = '>= 1.8.7'
