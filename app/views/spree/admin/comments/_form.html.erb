@@ -13,6 +13,20 @@
   <%= form.check_box :approve  %> <%= form.label :approve, t("activerecord.attributes.comment.approve") %><br />
 <% end %>
 
+
+
+<% if @comment.resource_type == "Spree::Post" %>
+  <% resource_titles = Spree::Post.select("id, title").collect { |r| [r.title, r.id] } %>
+<% end %>
+
+<% if @comment.resource_type == "Spree::Product" %>
+  <% resource_titles = Spree::Product.select("id, title").collect { |r| [r.title, r.id] } %>
+<% end %>
+
+<%= select_tag "comment[resource_id]", options_for_select(resource_titles, @comment.resource_id) %>
+
+
+
 <%= form.field_container :review do %>
   <%= form.check_box :review  %> <%= form.label :review, t("activerecord.attributes.comment.review") %><br />
 <% end %>
