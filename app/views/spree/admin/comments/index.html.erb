@@ -48,6 +48,10 @@
         <%= f.label :city_cont, t("activerecord.attributes.comment.city") %><br />
         <%= f.text_field :city_cont, :size => 25 %>
       </p>
+      <p>
+        <%= f.label :resource_type_cont, "Комментарий к..." %><br />
+        <%= f.select :resource_type_cont, [['Продукты', 'Spree::Product'],['Посты','Spree::Post']], :include_blank => true %>
+      </p>
       <p><%= button t("search") %></p>
     <% end %>
   </div>
