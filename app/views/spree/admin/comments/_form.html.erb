@@ -26,7 +26,7 @@
 <% end %>
 
 <% if @comment.resource_type == "Spree::Product" %>
-  <% resource_titles = Spree::Product.select("id, title").collect { |r| [r.title, r.id] } %>
+  <% resource_titles = Spree::Product.joins(:product_extension).select("spree_products.id, product_extensions.title").collect { |r| [r.title, r.id] } %>
 <% end %>
 
 <%= select_tag "comment[resource_id]", options_for_select(resource_titles, @comment.resource_id) %>
