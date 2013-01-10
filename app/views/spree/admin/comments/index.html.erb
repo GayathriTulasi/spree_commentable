@@ -20,7 +20,9 @@
       <td><%= comment.city %></td>
       <td><%= comment.resource_type == 'Spree::Product' ?  t("activerecord.attributes.comment.product") : t("activerecord.attributes.comment.blog") %></td>
       <td><%= l comment.created_at, :format => :date_time %></td>
-      <td><%= comment.approve ? t("activerecord.attributes.comment.yes") : t("activerecord.attributes.comment.no") %></td>
+      <td><%= comment.approve ? 'Да' : "Нет" %><br>
+        <%= link_to (comment.approve ? 'Не одобрить' : 'Одобрить'), "comments/approve/#{comment.id}/#{comment.approve}" %>
+      </td>
       <td>
         <%= link_to_edit comment %> &nbsp;
         <%= link_to_delete comment %>
