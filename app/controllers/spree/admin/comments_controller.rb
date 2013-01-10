@@ -7,6 +7,17 @@ module Spree
         redirect_to action: :edit
       end
 
+      def approve
+        comment = Spree::Comment.find(params[:id])
+        if params[:flag] == 'true'
+          comment.update_attributes(approve: false)
+        else
+          comment.update_attributes(approve: true)
+        end
+
+        redirect_to action: :index
+      end
+
       private
         def collection
           params[:search] ||= {}
