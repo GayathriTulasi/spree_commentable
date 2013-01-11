@@ -10,13 +10,6 @@
   <%= form.text_area :comment %>
 <% end %>
 
-
-<%= form.field_container :approve do %>
-  <%= form.check_box :approve  %> <%= form.label :approve, t("activerecord.attributes.comment.approve") %><br />
-<% end %>
-
-
-
 <% if @comment.resource_type == "Spree::Post" %>
   <% resource_titles = Spree::Post.select("id, title").collect { |r| [r.title, r.id] } %>
 <% end %>
@@ -27,6 +20,9 @@
 
 <%= select_tag "comment[resource_id]", options_for_select(resource_titles, @comment.resource_id) %>
 
+<%= form.field_container :approve do %>
+  <%= form.check_box :approve  %> <%= form.label :approve, t("activerecord.attributes.comment.approve") %><br />
+<% end %>
 
 
 <%= form.field_container :review do %>
