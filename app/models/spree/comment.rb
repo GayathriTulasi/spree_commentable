@@ -19,6 +19,7 @@ class Spree::Comment < ActiveRecord::Base
   scope :current_comment, where("created_at <= ?", Time.now)
 
   scope :review, where(:review => true)
+  scope :not_review, where(:review => false)
   def all_comments
     Spree::Comments.review
   end
