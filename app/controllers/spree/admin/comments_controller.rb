@@ -24,7 +24,7 @@ module Spree
           params[:search][:meta_sort] ||= "created_at.desc"
           @search = Spree::Comment.search(params[:q])
           if params[:num].present?
-            @collection = @search.result.page(params[:page]).per(1000)
+            @collection = @search.result.page(params[:page]).per(100)
           else
             @collection = @search.result.page(params[:page]).per(10)
           end
