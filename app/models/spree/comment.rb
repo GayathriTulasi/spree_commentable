@@ -16,7 +16,7 @@ class Spree::Comment < ActiveRecord::Base
   scope :approved, -> {where(:approve => true)}
   scope :not_approved, where(:approve => false)
 
-  scope :current_comment, where("created_at <= ?", Time.now)
+  scope :current_comment, where("created_at <= ?", Time.zone.now)
 
   scope :review, where(:review => true)
   scope :not_review, where(:review => false)
