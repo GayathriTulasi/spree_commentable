@@ -63,16 +63,17 @@
       </p>
       <p><%= button t("search") %></p>
     <% end %>
-  </div>
-  <div class="box">
     <h3><%= t(:resource_filter)%></h3>
       <%= form_tag ('/admin/comments/resource_filter'), :method => :get do %>
 
         <%= label_tag :product_id, t(:filter_for_product) %>
-        <%= select_tag :product_id, options_from_collection_for_select(Spree::Product.all, "id", "name"), :prompt => 'None' %>
-
+        <br>
+        <%= select_tag :product_id, options_from_collection_for_select(Spree::Product.all, "id", "name"), :prompt => 'None', :class => 'filter-select' %>
+        <br>
         <%= label_tag :post_id, t(:filter_for_post) %>
-        <%= select_tag :post_id, options_from_collection_for_select(Spree::Post.all, "id", "title"), :prompt => 'None'  %>
+        <br>
+        <%= select_tag :post_id, options_from_collection_for_select(Spree::Post.all, "id", "title"), :prompt => 'None', :class => 'filter-select'  %>
+        <br>
         <%= submit_tag t(:search) %>
       <% end %>
 

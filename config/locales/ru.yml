@@ -25,3 +25,6 @@ ru:
   comment: "Ваш отзыв"
   comment_from: "Отзывы к"
   comment_added_notice: "Ваш отзыв успешно добавлен! После проверки администратором он появится на сайте."
+  filter_for_product: "Выберите товар"
+  filter_for_post: "Выберите пост"
+  resource_filter: "Фильтер для темы"
