@@ -18,6 +18,20 @@ module Spree
         redirect_to action: :index
       end
 
+      def  resource_filter
+        redirect_to action: :index if params[:product_id].present? && params[:post_id].present? || params[:product_id].blank? && params[:post_id].blank?
+
+        params[:search] ||= {}
+        params[:search][:meta_sort] ||= "created_at.desc"
+        @search = Spree::Comment.search(params[:q])
+        if params[:product_id].present?
+          @collection = Spree::Comment.where('resource_type = ? AND resource_id = ?', 'Spree::Product', params[:product_id].to_i).page(params[:page]).per(10)
+        else
+          @collection = Spree::Comment.where('resource_type = ? AND resource_id = ?', 'Spree::Post', params[:post_id].to_i).page(params[:page]).per(10)
+        end
+        render :index
+      end
+
       private
         def collection
           params[:search] ||= {}
