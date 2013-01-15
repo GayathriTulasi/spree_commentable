@@ -64,7 +64,7 @@
       <p><%= button t("search") %></p>
     <% end %>
     <h3><%= t(:resource_filter)%></h3>
-      <%= form_tag ('/admin/comments/resource_filter'), :method => :get do %>
+      <%= form_tag resource_filter_admin_comments_path, :method => :get do %>
 
         <%= label_tag :product_id, t(:filter_for_product) %>
         <br>

@@ -28,3 +28,5 @@ ru:
   filter_for_product: "Выберите товар"
   filter_for_post: "Выберите пост"
   resource_filter: "Фильтер для темы"
+  form_change_resource: "Перенос комментария между постами и продуктами"
+  where_to_move_comment: 'Куда переместить комментарий?'

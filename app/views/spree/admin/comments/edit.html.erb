@@ -4,6 +4,9 @@
   <%= render 'spree/shared/error_messages', :target => @comment %>
 <% end %>
 
+<%= render :partial => 'change_resource', :locals => {:comment => @comment} %>
+
+
 <%= form_for([:admin, @comment]) do |f| %>
   <%= render "form", :form => f %>
   <p class="form-buttons">
