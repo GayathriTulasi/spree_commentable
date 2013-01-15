@@ -6,10 +6,10 @@
 
   <p>
     <h4><%= t(:where_to_move_comment) %></h4>
-    <%= radio_button_tag 'resource_type', 'Spree::Post', :id => 'change-resource-product' %>
+    <%= radio_button_tag 'resource_type', 'Spree::Post', :class => 'change-resource-product' %>
     <%= t(:post) %>
 
-    <%= radio_button_tag 'resource_type', 'Spree::Product', :id => 'change-resource-post' %>
+    <%= radio_button_tag 'resource_type', 'Spree::Product', :class => 'change-resource-post' %>
     <%= t(:product) %>
 
     <br>

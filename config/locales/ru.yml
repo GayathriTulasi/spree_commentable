@@ -30,3 +30,4 @@ ru:
   resource_filter: "Фильтер для темы"
   form_change_resource: "Перенос комментария между постами и продуктами"
   where_to_move_comment: 'Куда переместить комментарий?'
+  post: 'Пост'
