@@ -2,7 +2,7 @@
 <div><b><%= t("activerecord.attributes.comment.comment") %></b>: <%= @comment.comment %></div>
 <div><b><%= t("activerecord.attributes.comment.email") %></b>: <%= @comment.email %></div>
 <div><b><%= t("activerecord.attributes.comment.city") %></b>: <%= @comment.city %></div>
-<div><b>Добавлен к <%= @comment.resource_type == 'Spree::Product' ?  'продукту' : 'посту' %></b>:  <%= @comment.resource.title %>  
+<div><b>Добавлен к <%= @comment.resource_type == 'Spree::Product' ?  'продукту' : 'посту' %></b>:  <%= @comment.resource.title %>
   [<%= @comment.resource_type == 'Spree::Product' ?   link_to('Ссылка', @comment.resource)  : link_to('Ссылка', "/#{@comment.resource.blog.permalink}/#{@comment.resource.path}")  %>]</div>
 
 <%= form.field_container :comment do %>
@@ -10,20 +10,9 @@
   <%= form.text_area :comment %>
 <% end %>
 
-<% if @comment.resource_type == "Spree::Post" %>
-  <% resource_titles = Spree::Post.select("id, title").collect { |r| [r.title, r.id] } %>
-<% end %>
-
-<% if @comment.resource_type == "Spree::Product" %>
-  <% resource_titles = Spree::Product.joins(:product_extension).select("spree_products.id, product_extensions.title").collect { |r| [r.title, r.id] } %>
-<% end %>
-
-<%= select_tag "comment[resource_id]", options_for_select(resource_titles, @comment.resource_id) %>
-
 <%= form.field_container :approve do %>
   <%= form.check_box :approve  %> <%= form.label :approve, t("activerecord.attributes.comment.approve") %><br />
 <% end %>
-
 
 <%= form.field_container :review do %>
   <%= form.check_box :review  %> <%= form.label :review, t("activerecord.attributes.comment.review") %><br />
