@@ -68,11 +68,11 @@
 
         <%= label_tag :product_id, t(:filter_for_product) %>
         <br>
-        <%= select_tag :product_id, options_from_collection_for_select(Spree::Product.all, "id", "name"), :prompt => 'None', :class => 'filter-select' %>
+        <%= select_tag :product_id, options_from_collection_for_select(Spree::Product.order('name'), "id", "name"), :prompt => 'None', :class => 'filter-select' %>
         <br>
         <%= label_tag :post_id, t(:filter_for_post) %>
         <br>
-        <%= select_tag :post_id, options_from_collection_for_select(Spree::Post.all, "id", "title"), :prompt => 'None', :class => 'filter-select'  %>
+        <%= select_tag :post_id, options_from_collection_for_select(Spree::Post.order('title'), "id", "title"), :prompt => 'None', :class => 'filter-select'  %>
         <br>
         <%= submit_tag t(:search) %>
       <% end %>
