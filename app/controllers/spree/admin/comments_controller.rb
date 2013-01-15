@@ -19,7 +19,7 @@ module Spree
       end
 
       def  resource_filter
-        redirect_to action: :index if params[:product_id].present? && params[:post_id].present? || params[:product_id].blank? && params[:post_id].blank?
+        return redirect_to action: :index if params[:product_id].present? && params[:post_id].present? || params[:product_id].blank? && params[:post_id].blank?
 
         params[:search] ||= {}
         params[:search][:meta_sort] ||= "created_at.desc"
