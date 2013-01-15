@@ -32,6 +32,14 @@ module Spree
         render :index
       end
 
+      def change_resource
+        resource_type = params[:resource_type]
+        params[:post_resource_id].present? ? resource_id = params[:post_resource_id] : resource_id = params[:product_resource_id]
+        comment = Spree::Comment.find(params[:id])
+        comment.update_attributes(:resource_type => resource_type, :resource_id => resource_id)
+        redirect_to action: :edit
+      end
+
       private
         def collection
           params[:search] ||= {}

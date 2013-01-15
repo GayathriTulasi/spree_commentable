@@ -9,6 +9,9 @@ Spree::Core::Engine.routes.prepend do
       collection do
         get  :resource_filter
       end
+      member do
+        put :change_resource
+      end
       get "comments/approve/:id/:flag" => "comments#approve"
     end
   end
