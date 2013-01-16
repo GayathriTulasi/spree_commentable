@@ -1,0 +1,73 @@
+<table>
+  <%= form.field_container :author do %>
+    <tr>
+      <td>
+        <%= form.label t("activerecord.attributes.comment.author") %>
+      </td>
+      <td>
+        <%= form.text_field :author %>
+      </td>
+    </tr>
+  <% end %>
+  <%= form.field_container :email do %>
+    <tr>
+      <td>
+        <%= form.label :email %>
+      </td>
+      <td>
+        <%= form.text_field :email %>
+      </td>
+    </tr>
+  <% end %>
+  <%= form.field_container :city do %>
+    <tr>
+      <td>
+        <%= form.label t("activerecord.attributes.comment.city") %>
+      </td>
+      <td>
+        <%= form.text_field :city %>
+      </td>
+    </tr>
+  <% end %>
+  <%= form.field_container :comment do %>
+    <tr>
+      <td>
+        <%= form.label t("activerecord.attributes.comment.comment") %>
+      </td>
+      <td>
+        <%= form.text_area :comment %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<div style="margin:1em 0;">
+  <div>
+    <label>
+      <%= radio_button_tag 'resource_type', 'Spree::Post', false, :id => 'change-resource-post' %>
+      <%= t(:post) %>
+    </label>
+
+    <label style="margin-left:3em;">
+      <%= radio_button_tag 'resource_type', 'Spree::Product', false, :id => 'change-resource-product' %>
+      <%= t(:product) %>
+    </label>
+  </div>
+<%= select_tag 'post_resource_id', options_from_collection_for_select(Spree::Post.order('title'), "id", "title"), :prompt => 'None', :class => 'change-resource-select', :id => 'post-select', :style => 'display:none;' %>
+
+<%= select_tag 'product_resource_id', options_from_collection_for_select(Spree::Product.order('name'), "id", "name"), :prompt => 'None', :class => 'change-resource-select', :id => 'product-select', :style => 'display:none;' %>
+</div>
+
+<%= form.field_container :approve do %>
+  <%= form.check_box :approve  %> <%= form.label :approve, t("activerecord.attributes.comment.approve") %><br />
+<% end %>
+
+<%= form.field_container :review do %>
+  <%= form.check_box :review  %> <%= form.label :review, t("activerecord.attributes.comment.review") %><br />
+<% end %>
+
+<%= form.field_container :created_at do %>
+  <%= form.label :created_at, t("activerecord.attributes.comment.created_at") %><br />
+  <%= form.datetime_select :created_at  %>
+<% end %>
+
+
