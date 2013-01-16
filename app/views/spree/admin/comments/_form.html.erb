@@ -1,14 +1,47 @@
-<div><b><%= t("activerecord.attributes.comment.author") %></b>: <%= @comment.author %></div>
-<div><b><%= t("activerecord.attributes.comment.comment") %></b>: <%= @comment.comment %></div>
-<div><b><%= t("activerecord.attributes.comment.email") %></b>: <%= @comment.email %></div>
-<div><b><%= t("activerecord.attributes.comment.city") %></b>: <%= @comment.city %></div>
+<table>
+  <%= form.field_container :author do %>
+    <tr>
+      <td>
+        <%= form.label t("activerecord.attributes.comment.author") %>
+      </td>
+      <td>
+        <%= form.text_field :author %>
+      </td>
+    </tr>
+  <% end %>
+  <%= form.field_container :email do %>
+    <tr>
+      <td>
+        <%= form.label :email %>
+      </td>
+      <td>
+        <%= form.text_field :email %>
+      </td>
+    </tr>
+  <% end %>
+  <%= form.field_container :city do %>
+    <tr>
+      <td>
+        <%= form.label t("activerecord.attributes.comment.city") %>
+      </td>
+      <td>
+        <%= form.text_field :city %>
+      </td>
+    </tr>
+  <% end %>
+  <%= form.field_container :comment do %>
+    <tr>
+      <td>
+        <%= form.label t("activerecord.attributes.comment.comment") %>
+      </td>
+      <td>
+        <%= form.text_area :comment %>
+      </td>
+    </tr>
+  <% end %>
+</table>
 <div><b>Добавлен к <%= @comment.resource_type == 'Spree::Product' ?  'продукту' : 'посту' %></b>:  <%= @comment.resource.title %>
   [<%= @comment.resource_type == 'Spree::Product' ?   link_to('Ссылка', @comment.resource)  : link_to('Ссылка', "/#{@comment.resource.blog.permalink}/#{@comment.resource.path}")  %>]</div>
-
-<%= form.field_container :comment do %>
-  <%= form.label :comment %>
-  <%= form.text_area :comment %>
-<% end %>
 
 <%= form.field_container :approve do %>
   <%= form.check_box :approve  %> <%= form.label :approve, t("activerecord.attributes.comment.approve") %><br />
