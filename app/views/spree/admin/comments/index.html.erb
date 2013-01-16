@@ -1,3 +1,11 @@
+<div class='toolbar'>
+  <ul class='actions'>
+    <li>
+      <p><%= button_link_to "Новый комментарий", new_admin_comment_url, :icon => 'add' %></p>
+    </li>
+  </ul>
+  <br class='clear' />
+</div>
 <h1><%= t("activerecord.attributes.comment.comments_listing") %></h1>
 <a href="comments<%= (params[:num].present? ? '' : '?num=all' ) %>" style="float:right; margin: 1em ;"><%= (params[:num].present? ? 'Показать постранично' :  'Показать все' ) %></a>
 <table class="index">
