@@ -12,8 +12,8 @@ Spree::Core::Engine.routes.prepend do
       member do
         put :change_resource
       end
-      get "comments/approve/:id/:flag" => "comments#approve"
     end
+    get "comments/approve/:id/:flag" => "comments#approve"
   end
 
   post ":blog_id/:id/comments" => "comments#create",  :as => :post_comments
