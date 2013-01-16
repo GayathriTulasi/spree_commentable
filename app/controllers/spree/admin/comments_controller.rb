@@ -18,6 +18,14 @@ module Spree
         redirect_to action: :index
       end
 
+      def create
+        params[:comment][:resource_type] = params[:resource_type]
+        params[:post_resource_id].present? ? params[:comment][:resource_id] = params[:post_resource_id] : params[:comment][:resource_id] = params[:product_resource_id]
+        @comment = Spree::Comment.new(params[:comment])
+        @comment.save
+        redirect_to action: :index
+      end
+
       def  resource_filter
         return redirect_to action: :index if params[:product_id].present? && params[:post_id].present? || params[:product_id].blank? && params[:post_id].blank?
 
