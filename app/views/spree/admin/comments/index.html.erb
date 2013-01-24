@@ -65,10 +65,6 @@
         <%= f.label :city_cont, t("activerecord.attributes.comment.city") %><br />
         <%= f.text_field :city_cont, :size => 25 %>
       </p>
-      <p>
-        <%= f.label :resource_type_cont, "Комментарий к..." %><br />
-        <%= f.select :resource_type_cont, [['Продукты', 'Spree::Product'],['Посты','Spree::Post']], :include_blank => true %>
-      </p>
       <p><%= button t("search") %></p>
     <% end %>
     <h3><%= t(:resource_filter)%></h3>
@@ -77,10 +73,6 @@
         <%= label_tag :product_id, t(:filter_for_product) %>
         <br>
         <%= select_tag :product_id, options_from_collection_for_select(Spree::Product.order('name'), "id", "name"), :prompt => 'None', :class => 'filter-select' %>
-        <br>
-        <%= label_tag :post_id, t(:filter_for_post) %>
-        <br>
-        <%= select_tag :post_id, options_from_collection_for_select(Spree::Post.order('title'), "id", "title"), :prompt => 'None', :class => 'filter-select'  %>
         <br>
         <%= submit_tag t(:search) %>
       <% end %>

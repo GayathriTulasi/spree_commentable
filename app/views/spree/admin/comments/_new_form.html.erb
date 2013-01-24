@@ -42,17 +42,12 @@
 </table>
 <div style="margin:1em 0;">
   <div>
-    <label>
-      <%= radio_button_tag 'resource_type', 'Spree::Post', false, :id => 'change-resource-post' %>
-      <%= t(:post) %>
-    </label>
 
     <label style="margin-left:3em;">
       <%= radio_button_tag 'resource_type', 'Spree::Product', false, :id => 'change-resource-product' %>
       <%= t(:product) %>
     </label>
   </div>
-<%= select_tag 'post_resource_id', options_from_collection_for_select(Spree::Post.order('title'), "id", "title"), :prompt => 'None', :class => 'change-resource-select', :id => 'post-select', :style => 'display:none;' %>
 
 <%= select_tag 'product_resource_id', options_from_collection_for_select(Spree::Product.order('name'), "id", "name"), :prompt => 'None', :class => 'change-resource-select', :id => 'product-select', :style => 'display:none;' %>
 </div>
