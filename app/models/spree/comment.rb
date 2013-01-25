@@ -10,9 +10,6 @@ class Spree::Comment < ActiveRecord::Base
   validates :comment, :presence => true, :length => { :minimum => 3, :maximum => 2000 }
   validates :city, :presence => true, :length => { :minimum => 3, :maximum => 20 }
 
-  delegate_belongs_to :resource,
-          :title
-
   scope :approved, -> {where(:approve => true)}
   scope :not_approved, where(:approve => false)
 

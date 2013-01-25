@@ -24,7 +24,7 @@
   <tbody>
     <%- @collection.each do |comment|%>
     <tr id="<%= dom_id comment %>">
-      <td><%= comment.title %></td>
+      <td><%= comment.resource.title %></td>
       <td><%= comment.author %></td>
       <td>
         <div class="short_comment"><%= link_to comment.comment.truncate(100, :omission => '...'), object_url(comment) %></div>
