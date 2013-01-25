@@ -1,6 +1,6 @@
 Spree::Core::Engine.routes.prepend do
 
-  resources :products do
+  resources :page do
     resources :comments
   end
 
@@ -15,6 +15,4 @@ Spree::Core::Engine.routes.prepend do
     end
     get "comments/approve/:id/:flag" => "comments#approve"
   end
-
-  post ":blog_id/:id/comments" => "comments#create",  :as => :post_comments
 end
