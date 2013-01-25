@@ -41,7 +41,7 @@
   <% end %>
 </table>
 <div><b>Добавлен к <%= @comment.resource_type == 'Spree::Product' ?  'продукту' : 'посту' %></b>:  <%= @comment.resource.title %>
-  [<%= @comment.resource_type == 'Spree::Product' ?   link_to('Ссылка', @comment.resource)  : link_to('Ссылка', "/#{@comment.resource.blog.permalink}/#{@comment.resource.path}")  %>]</div>
+  [<%= @comment.resource_type == 'Spree::Product' ?   link_to('Ссылка', @comment.resource)  : link_to('Ссылка', "/#{@comment.resource.slug}")  %>]</div>
 
 <%= form.field_container :approve do %>
   <%= form.check_box :approve  %> <%= form.label :approve, t("activerecord.attributes.comment.approve") %><br />

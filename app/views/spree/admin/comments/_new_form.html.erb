@@ -44,12 +44,12 @@
   <div>
 
     <label style="margin-left:3em;">
-      <%= radio_button_tag 'resource_type', 'Spree::Product', false, :id => 'change-resource-product' %>
-      <%= t(:product) %>
+      <%= hidden_field_tag 'resource_type', 'Spree::Page', :id => 'change-resource-product' %>
+      Страница
     </label>
   </div>
 
-<%= select_tag 'product_resource_id', options_from_collection_for_select(Spree::Product.order('name'), "id", "name"), :prompt => 'None', :class => 'change-resource-select', :id => 'product-select', :style => 'display:none;' %>
+<%= select_tag 'product_resource_id', options_from_collection_for_select(Spree::Page.order('title'), "id", "title"), :prompt => 'None', :class => 'change-resource-select', :id => 'product-select' %>
 </div>
 
 <%= form.field_container :approve do %>

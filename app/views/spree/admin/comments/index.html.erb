@@ -15,7 +15,6 @@
       <th><%= sort_link @search, :author, t("activerecord.attributes.comment.author") %></th>
       <th><%= sort_link @search, :comment,  t("activerecord.attributes.comment.comment") %></th>
       <th><%= sort_link @search, :city, t("activerecord.attributes.comment.city") %></th>
-      <th><%= sort_link @search, :resource_type, t("activerecord.attributes.comment.resource_type") %></th>
       <th><%= sort_link @search, :created_at, t("activerecord.attributes.comment.created_at") %></th>
       <th><%= sort_link @search, :approve, t("activerecord.attributes.comment.approve") %></th>
       <th><%= t("action") %></th>
@@ -31,7 +30,6 @@
         <div class="full_comment"><%= link_to comment.comment, object_url(comment) %></div>
       </td>
       <td><%= comment.city %></td>
-      <td><%= comment.resource_type == 'Spree::Product' ?  t("activerecord.attributes.comment.product") : t("activerecord.attributes.comment.blog") %></td>
       <td><%= l comment.created_at, :format => :date_time %></td>
       <td><%= comment.approve ? 'Да' : "Нет" %><br>
         <%= link_to (comment.approve ? 'Не одобрить' : 'Одобрить'), "comments/approve/#{comment.id}/#{comment.approve}" %>
@@ -70,9 +68,9 @@
     <h3><%= t(:resource_filter)%></h3>
       <%= form_tag resource_filter_admin_comments_path, :method => :get do %>
 
-        <%= label_tag :product_id, t(:filter_for_product) %>
+        <%= label_tag :page_id, "Выберите страницу" %>
         <br>
-        <%= select_tag :product_id, options_from_collection_for_select(Spree::Product.order('name'), "id", "name"), :prompt => 'None', :class => 'filter-select' %>
+        <%= select_tag :page_id, options_from_collection_for_select(Spree::Page.order('title'), "id", "title"), :prompt => 'None', :class => 'filter-select' %>
         <br>
         <%= submit_tag t(:search) %>
       <% end %>
