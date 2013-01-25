@@ -11,7 +11,6 @@
 <table class="index">
   <thead>
   <tr>
-      <th><%= sort_link @search, :title, t("activerecord.attributes.comment.theme") %></th>
       <th><%= sort_link @search, :author, t("activerecord.attributes.comment.author") %></th>
       <th><%= sort_link @search, :comment,  t("activerecord.attributes.comment.comment") %></th>
       <th><%= sort_link @search, :city, t("activerecord.attributes.comment.city") %></th>
@@ -23,7 +22,6 @@
   <tbody>
     <%- @collection.each do |comment|%>
     <tr id="<%= dom_id comment %>">
-      <td><%= comment.resource.title %></td>
       <td><%= comment.author %></td>
       <td>
         <div class="short_comment"><%= link_to comment.comment.truncate(100, :omission => '...'), object_url(comment) %></div>
@@ -65,14 +63,5 @@
       </p>
       <p><%= button t("search") %></p>
     <% end %>
-    <h3><%= t(:resource_filter)%></h3>
-      <%= form_tag resource_filter_admin_comments_path, :method => :get do %>
-
-        <%= label_tag :page_id, "Выберите страницу" %>
-        <br>
-        <%= select_tag :page_id, options_from_collection_for_select(Spree::Page.order('title'), "id", "title"), :prompt => 'None', :class => 'filter-select' %>
-        <br>
-        <%= submit_tag t(:search) %>
-      <% end %>
 
 <% end %>

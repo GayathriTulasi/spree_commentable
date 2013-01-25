@@ -6,9 +6,6 @@ Spree::Core::Engine.routes.prepend do
 
   namespace :admin do
     resources :comments do
-      collection do
-        get  :resource_filter
-      end
       member do
         put :change_resource
       end

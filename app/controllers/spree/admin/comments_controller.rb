@@ -26,18 +26,6 @@ module Spree
         redirect_to action: :index
       end
 
-      def  resource_filter
-        return redirect_to action: :index if params[:product_id].present? || params[:product_id].blank?
-
-        params[:search] ||= {}
-        params[:search][:meta_sort] ||= "created_at.desc"
-        @search = Spree::Comment.search(params[:q])
-        if params[:product_id].present?
-          @collection = Spree::Comment.where('resource_type = ? AND resource_id = ?', 'Spree::Product', params[:product_id].to_i).page(params[:page]).per(10)
-        end
-        render :index
-      end
-
       def change_resource
         resource_type = params[:resource_type]
         params[:post_resource_id].present? ? resource_id = params[:post_resource_id] : resource_id = params[:product_resource_id]
