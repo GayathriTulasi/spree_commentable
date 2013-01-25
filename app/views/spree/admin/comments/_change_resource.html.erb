@@ -7,11 +7,11 @@
   <p>
     <h4><%= t(:where_to_move_comment) %></h4>
 
-    <%= radio_button_tag 'resource_type', 'Spree::Product', false, :id => 'change-resource-product' %>
+    <%= hidden_field_tag 'resource_type', 'Spree::Product', :id => 'change-resource-product' %>
     <%= t(:product) %>
 
     <br>
-    <%= select_tag 'product_resource_id', options_from_collection_for_select(Spree::Product.order('name'), "id", "name"), :prompt => 'None', :class => 'change-resource-select', :id => 'product-select', :style => 'display: none;' %>
+    <%= select_tag 'product_resource_id', options_from_collection_for_select(Spree::Product.order('name'), "id", "name"), :prompt => 'None', :class => 'change-resource-select', :id => 'product-select' %>
   </p>
   <%= submit_tag t("update") %> <%= t('or') %> <%= link_to t('cancel'), collection_url %>
 <% end %>
