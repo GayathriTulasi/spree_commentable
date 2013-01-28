@@ -17,7 +17,7 @@ class Spree::Comment < ActiveRecord::Base
   scope :not_approved, where(:approve => false)
 
   scope :on_main_page, where(:show_on_main_page => true)
-  scope :not_main_page, where(:show_on_main_page => false)
+  scope :not_main_page, where(:show_on_main_page => [nil, false])
 
   scope :current_comment, -> { where("created_at <= ?", Time.zone.now) }
 
@@ -26,9 +26,5 @@ class Spree::Comment < ActiveRecord::Base
 
   def all_comments
     Spree::Comments.review
-  end
-
-  def main_page_comments
-    Spree::Comments.on_main_page
   end
 end
