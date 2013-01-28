@@ -47,6 +47,10 @@
   <%= form.check_box :approve  %> <%= form.label :approve, t("activerecord.attributes.comment.approve") %><br />
 <% end %>
 
+<%= form.field_container :show_on_main_page do %>
+  <%= form.check_box :show_on_main_page  %> <%= form.label :show_on_main_page, t("activerecord.attributes.comment.show_on_main_page") %><br />
+<% end %>
+
 <%= form.field_container :review do %>
   <%= form.check_box :review  %> <%= form.label :review, t("activerecord.attributes.comment.review") %><br />
 <% end %>

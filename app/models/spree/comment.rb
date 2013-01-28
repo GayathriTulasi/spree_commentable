@@ -1,6 +1,6 @@
 class Spree::Comment < ActiveRecord::Base
 
-  attr_accessible :approve, :author, :comment, :email, :review, :city, :created_at, :resource_id, :order, :resource_type
+  attr_accessible :approve, :author, :comment, :email, :review, :city, :created_at, :resource_id, :order, :resource_type, :show_on_main_page
 
 
   belongs_to :resource, polymorphic: true
@@ -23,6 +23,7 @@ class Spree::Comment < ActiveRecord::Base
 
   scope :review, where(:review => true)
   scope :not_review, where(:review => false)
+
   def all_comments
     Spree::Comments.review
   end
