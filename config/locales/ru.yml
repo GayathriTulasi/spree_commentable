@@ -13,7 +13,6 @@ ru:
         resource_type: "Тип"
         product: "Продукт"
         blog: "Блог"
-        review: "Лучший отзыв"
         comments_listing: "Список комментариев"
         comment_params: "Параметры комментария"
         theme: "Тема"
