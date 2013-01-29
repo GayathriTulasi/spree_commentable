@@ -1,6 +1,6 @@
 class Spree::Comment < ActiveRecord::Base
 
-  attr_accessible :approve, :author, :comment, :email, :review, :city, :created_at, :resource_id, :resource_type
+  attr_accessible :approve, :author, :comment, :email, :city, :created_at, :resource_id, :resource_type
 
 
   belongs_to :resource, polymorphic: true
@@ -15,9 +15,7 @@ class Spree::Comment < ActiveRecord::Base
 
   scope :current_comment, -> { where("created_at <= ?", Time.zone.now) }
 
-  scope :review, where(:review => true)
-  scope :not_review, where(:review => false)
   def all_comments
-    Spree::Comments.review
+    Spree::Comments
   end
 end

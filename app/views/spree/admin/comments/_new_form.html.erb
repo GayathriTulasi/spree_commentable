@@ -56,10 +56,6 @@
   <%= form.check_box :approve  %> <%= form.label :approve, t("activerecord.attributes.comment.approve") %><br />
 <% end %>
 
-<%= form.field_container :review do %>
-  <%= form.check_box :review  %> <%= form.label :review, t("activerecord.attributes.comment.review") %><br />
-<% end %>
-
 <%= form.field_container :created_at do %>
   <%= form.label :created_at, t("activerecord.attributes.comment.created_at") %><br />
   <%= form.datetime_select :created_at  %>
