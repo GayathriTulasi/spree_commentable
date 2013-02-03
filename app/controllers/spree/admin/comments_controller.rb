@@ -41,7 +41,7 @@ module Spree
       end
 
       def change_resource
-        redirect_to action: :edit if params[:post_resource_id].blank? && params[:product_resource_id].blank?
+        return redirect_to action: :edit if params[:post_resource_id].blank? && params[:product_resource_id].blank?
         resource_type = params[:resource_type]
         params[:post_resource_id].present? ? resource_id = params[:post_resource_id] : resource_id = params[:product_resource_id]
         comment = Spree::Comment.find(params[:id])
