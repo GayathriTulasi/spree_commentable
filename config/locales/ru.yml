@@ -5,6 +5,7 @@ ru:
         author: "Автор"
         comment: "Комментарий"
         comments: "Комментарии"
+        title: "Название комментария"
         city: "Город"
         created_at: "Создан"
         approve: "Одобрен"

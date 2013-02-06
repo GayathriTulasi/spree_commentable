@@ -1,4 +1,14 @@
 <table>
+  <%= form.field_container :title do %>
+    <tr>
+      <td>
+        <%= form.label t("activerecord.attributes.comment.title") %>
+      </td>
+      <td>
+        <%= form.text_field :title %>
+      </td>
+    </tr>
+  <% end %>
   <%= form.field_container :author do %>
     <tr>
       <td>
