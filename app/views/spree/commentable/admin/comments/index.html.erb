@@ -11,8 +11,6 @@
 
     <%= search_form_for [:commentable, :admin, @search], url: admin_comments_path do |f| %>
 
-        <%- locals = { f: f } %>
-
         <div data-hook="admin_products_index_search">
           <div class="alpha four columns">
             <div class="field">
@@ -77,9 +75,9 @@
             </td>
             <td class="align-center"><%= comment.product.name %></td>
             <td class="actions" data-hook="admin_products_index_row_actions">
-              <%= link_to_edit comment, :no_text => true, :class => 'edit' %>
+              <%= link_to_edit comment, no_text: true, class: 'edit' %>
               &nbsp;
-              <%= link_to_delete comment, :no_text => true %>
+              <%= link_to_delete comment, no_text: true %>
             </td>
           </tr>
       <% end %>
