@@ -1,21 +1,28 @@
 SpreeCommentable
 ================
 
-Introduction goes here.
+Add comments/reviews for products in spree.
 
 
-Example
+Demo
 =======
 
-Example goes here.
+Demo of the gem you can see here http://rg-spree-gems-test.herokuapp.com/
 
-Testing
--------
+Installation
+------------
+    # see the notes in Versionfile if you are using an older version of spree
+    gem 'spree_commentable'
 
-Be sure to bundle your dependencies and then create a dummy test app for the specs to run against.
+    bundle install
 
-    $ bundle
-    $ bundle exec rake test_app
-    $ bundle exec rspec spec
+    bundle exec rails g spree_commentable:install
 
-Copyright (c) 2013 [name of extension creator], released under the New BSD License
+
+
+Contribute
+==========
+
+Feel free to send pull requests!
+
+Copyright (c) 2013 [Racoons Group], released under the New BSD License
