@@ -1,0 +1,13 @@
+<h2 class="comment_list"><%= t(:comment_from) %> «<%= accurate_title %>»</h2>
+<ul class="comments_list">
+  <% @product.comments.only_approved_comments.each do |comment| %>
+    <li class="comment <%= cycle('odd', 'even') %>">
+      <div class="comment_date"><%= raw comment.created_at.strftime("%d %B <br> %Y<br> %H:%M %p") %></div>
+      <div class="comment_body">
+        <span class="author"><%= comment.author %></span>
+        <p><%= comment.comment %></p>
+        <div class="clear"></div>
+      </div>
+    </li>
+  <% end %>
+</ul>

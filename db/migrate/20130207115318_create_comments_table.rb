@@ -1,4 +1,4 @@
-class CreateComments < ActiveRecord::Migration
+class CreateCommentsTable < ActiveRecord::Migration
   def change
     create_table :spree_comments do |t|
       t.string :author

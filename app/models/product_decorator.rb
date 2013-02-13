@@ -1,7 +1,3 @@
 Spree::Product.class_eval do
-  has_many :comments
-
-  def approved_comments
-    comments.approved
-  end
+  has_many :comments, class_name: 'Spree::Commentable::Comment'
 end
