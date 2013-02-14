@@ -14,3 +14,16 @@ table td.actions .icon-eye-open.no-text:hover {
   background: #9fc820;
   color: #fff;
 }
+.comment .full_comment {
+  display: none;
+}
+.show_comment_toggle {
+  float: right;
+  font-size: 0.8em;
+  margin-top: -1.5em;
+  position: relative;
+  color: rgb(194, 218, 236);
+}
+.comment_line {
+  cursor: pointer;
+}
