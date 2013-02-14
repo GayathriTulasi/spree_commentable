@@ -6,6 +6,7 @@ Spree::Core::Engine.routes.draw do
 
     namespace :admin do
       resources :comments
+      get 'comments/:id/approve', to: 'comments#fast_approve', as: :fast_approve
     end
   end
 end
