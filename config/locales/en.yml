@@ -5,4 +5,5 @@ en:
   email_warning: 'Email will be shown only for the administration'
   comment_submit: 'Submit My Comment'
   comment_added_notice: "Your comment has been added, it will be visible after moderation"
+  click_to_show: 'Click to comment for show or hide full comment'
 
