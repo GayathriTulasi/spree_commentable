@@ -1,0 +1,16 @@
+table td.actions .icon-eye-close.no-text {
+  border:1px solid #c60f13;
+  color: #c60f13;
+}
+table td.actions .icon-eye-close.no-text:hover {
+  background: #c60f13;
+  color: #fff;
+}
+table td.actions .icon-eye-open.no-text {
+  border:1px solid #9fc820;
+  color: #9fc820;
+}
+table td.actions .icon-eye-open.no-text:hover {
+  background: #9fc820;
+  color: #fff;
+}
