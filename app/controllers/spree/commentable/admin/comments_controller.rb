@@ -23,6 +23,11 @@ class Spree::Commentable::Admin::CommentsController < Spree::Admin::ResourceCont
     end
   end
 
+  def fast_approve
+    Spree::Commentable::Comment.find(params[:id]).toggle!(:approve)
+    redirect_to admin_comments_url
+  end
+
   private
     def collection
       params[:search] ||= {}
