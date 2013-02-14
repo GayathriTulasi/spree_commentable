@@ -6,4 +6,5 @@ en:
   comment_submit: 'Submit My Comment'
   comment_added_notice: "Your comment has been added, it will be visible after moderation"
   click_to_show: 'Click to comment for show or hide full comment'
+  comment_not_added: 'Comment not added. Check the input data!'
 
