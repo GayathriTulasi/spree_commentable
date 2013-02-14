@@ -12,24 +12,28 @@
     <%= search_form_for [:commentable, :admin, @search], url: admin_comments_path do |f| %>
 
         <div data-hook="admin_products_index_search">
-          <div class="alpha four columns">
+          <div class="alpha three columns">
             <div class="field">
               <%= f.label :email_cont, t(:email) %>
               <%= f.text_field :email_cont, size: 25 %>
             </div>
           </div>
-          <div class="four columns">
+          <div class="three columns">
             <div class="field">
               <%= f.label :author_cont, t(:author) %>
               <%= f.text_field :author_cont, size: 15 %>
             </div>
           </div>
-          <div class="eight columns omega">
+          <div class="six columns">
             <div class="field">
-              <label>
-                <%= f.label :comment_cont, t(:comment) %>
-                <%= f.text_field :comment_cont, size: 30 %>
-              </label>
+              <%= f.label :comment_cont, t(:comment) %>
+              <%= f.text_field :comment_cont, size: 30 %>
+            </div>
+          </div>
+          <div class="three columns omega">
+            <div class="field select">
+              <%= t(:show_comment) %>
+              <%= f.select :approve_eq, options_for_select([[t(:all_comments), ''], [t(:approved_comments), 1], [t(:not_approved_comments), 0]])  %>
             </div>
           </div>
         </div>

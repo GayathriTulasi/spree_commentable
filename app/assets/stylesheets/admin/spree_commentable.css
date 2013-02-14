@@ -27,3 +27,6 @@ table td.actions .icon-eye-open.no-text:hover {
 .comment_line {
   cursor: pointer;
 }
+div.select select {
+  padding: 4px 10px;
+}
