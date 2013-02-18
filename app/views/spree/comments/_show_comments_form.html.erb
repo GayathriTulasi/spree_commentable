@@ -2,21 +2,30 @@
   <h2 class="add_comments"><%= t(:add_comment) %></h2>
 
   <%= form_for([@product, @product.comments.build], url: product_comments_path(@product), html: { id: 'comment_form_check' }) do |f| %>
-    <div class="small_info">
+    <div class="small_info clearfix">
       <div class="commenter_name">
-        <%= f.label :author %><span class="required">*</span><br />
-        <%= f.text_field :author, class: 'required' %>
+        <div id="commenter_name" <%= "style=display:none" if user_signed_in? %>>
+          <%= f.label :author %><span class="required">*</span><br />
+          <%= f.text_field :author, value: (user_signed_in? ? spree_current_user.email[/[^@]+/].capitalize : ''), class: 'required' %>
+        </div>
+        <% if user_signed_in? %>
+          <span id="stand_name">
+            <b><%= t(:author_name_or_nick) %>:</b> <%= spree_current_user.email[/[^@]+/].capitalize %> (<a href="#" id="change_name"><%= t(:change_name) %></a>)
+          </span>
+        <% end %>
       </div>
-      <div class="commenter_email">
-        <%= f.label :email %><span class="required">*</span><br />
-        <%= f.text_field :email, class: 'required email' %><br />
-        <span class="small">* <%= t(:email_warning) %></span>
-      </div>
+      <% unless user_signed_in? %>
+        <div class="commenter_email">
+          <%= f.label :email %><span class="required">*</span><br />
+          <%= f.text_field :email, class: 'required email' %><br />
+          <span class="small">* <%= t(:email_warning) %></span>
+        </div>
+      <% end %>
     </div>
-    <p>
+    <div>
       <%= f.label :comment %><span class="required">*</span><br />
       <%= f.text_area :comment, rows: '5', class: 'comment_area required' %>
-    </p>
+    </div>
     <p>
       <%= f.submit t(:comment_submit), class: 'btn comment' %>
     </p>
