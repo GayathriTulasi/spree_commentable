@@ -1,4 +1,4 @@
-class Spree::Commentable::Comment < ActiveRecord::Base
+class Spree::Comment < ActiveRecord::Base
 
   attr_accessible :author, :comment, :email, :approve
 
